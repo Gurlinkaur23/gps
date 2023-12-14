@@ -19,7 +19,7 @@ function getLocation(position) {
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
     center: [longitude, latitude], // starting position
     pitch: 40,
-    zoom: 17, // starting zoom
+    zoom: 16, // starting zoom
   });
   new mapboxgl.Marker({ color: '#674cb5' })
     .setLngLat([longitude, latitude])

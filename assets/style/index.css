@@ -20,7 +20,6 @@ body {
 
 #map {
   height: 100dvh;
-  border-radius: 5px;
 }
 
 .mapboxgl-ctrl-bottom-left,
