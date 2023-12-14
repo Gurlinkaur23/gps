@@ -11,19 +11,21 @@ const mapDiv = select('#map');
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZ3VybGlua2F1ciIsImEiOiJjbHExYjM4cHUwNzE3MnBud25qNDlmc2VjIn0.Jeu9BD0h1vILAwXce8dQqw';
 
+const marker = new mapboxgl.Marker({ color: '#674cb5' });
+
+const map = new mapboxgl.Map({
+  container: 'map', // container ID
+  style: 'mapbox://styles/mapbox/streets-v12', // style URL
+  // center: [longitude, latitude], // starting position
+  pitch: 40,
+  zoom: 16, // starting zoom
+});
+
 function getLocation(position) {
   let { latitude, longitude } = position.coords;
 
-  const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [longitude, latitude], // starting position
-    pitch: 40,
-    zoom: 16, // starting zoom
-  });
-  new mapboxgl.Marker({ color: '#674cb5' })
-    .setLngLat([longitude, latitude])
-    .addTo(map);
+  map.setCenter([longitude, latitude]);
+  marker.setLngLat([longitude, latitude]).addTo(map);
 }
 
 function errorHandler() {
